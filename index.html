@@ -1,45 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Fun Fact</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NFC Fun Fact</title>
+
 <style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI, sans-serif;
+}
+
 body{
-    font-family: Arial;
-    text-align:center;
-    padding-top:100px;
-    background:#111;
-    color:white;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(135deg,#4facfe,#00f2fe);
+}
+
+.card{
+background:white;
+padding:40px;
+border-radius:20px;
+max-width:500px;
+width:90%;
+text-align:center;
+box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
+
+h1{
+margin-bottom:20px;
 }
 
 #fact{
-    font-size:28px;
-    max-width:600px;
-    margin:auto;
+font-size:20px;
+line-height:1.5;
+min-height:90px;
+margin-bottom:25px;
 }
+
+button{
+background:#4facfe;
+border:none;
+color:white;
+padding:12px 25px;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+transition:0.2s;
+}
+
+button:hover{
+transform:scale(1.05);
+background:#3b8ce0;
+}
+
+.loading{
+color:#777;
+font-style:italic;
+}
+
 </style>
 </head>
 
 <body>
 
-<h1>Random Fun Fact</h1>
-<p id="fact"></p>
+<div class="card">
+
+<h1>📡 NFC Fun Fact</h1>
+
+<p id="fact" class="loading">Scanning the universe for knowledge...</p>
+
+<button onclick="getFact()">Another Fact</button>
+
+</div>
 
 <script>
 
-const facts = [
+const backupFacts = [
 "Octopuses have three hearts.",
-"Bananas are berries but strawberries aren't.",
-"A day on Venus is longer than a year on Venus.",
 "Honey never spoils.",
+"Bananas are berries but strawberries aren't.",
 "Sharks existed before trees.",
 "A group of flamingos is called a flamboyance.",
 "Your brain uses about 20% of your body's energy.",
-"There are more stars than grains of sand on Earth."
+"Sloths can hold their breath longer than dolphins.",
+"There are more stars than grains of sand on Earth.",
+"Venus spins backwards.",
+"Some turtles breathe through their butts."
 ];
 
-const randomFact = facts[Math.floor(Math.random() * facts.length)];
+async function getFact(){
 
-document.getElementById("fact").innerText = randomFact;
+document.getElementById("fact").innerText =
+"Searching the universe for knowledge...";
+
+try{
+
+let response = await fetch(
+"https://uselessfacts.jsph.pl/api/v2/facts/random"
+);
+
+let data = await response.json();
+
+document.getElementById("fact").innerText = data.text;
+
+}catch{
+
+let randomBackup =
+backupFacts[Math.floor(Math.random()*backupFacts.length)];
+
+document.getElementById("fact").innerText = randomBackup;
+
+}
+
+}
+
+getFact();
 
 </script>
 
