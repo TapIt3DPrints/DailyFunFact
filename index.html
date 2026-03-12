@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fun Fact</title>
+<style>
+body{
+    font-family: Arial;
+    text-align:center;
+    padding-top:100px;
+    background:#111;
+    color:white;
+}
+
+#fact{
+    font-size:28px;
+    max-width:600px;
+    margin:auto;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Random Fun Fact</h1>
+<p id="fact"></p>
+
+<script>
+
+const facts = [
+"Octopuses have three hearts.",
+"Bananas are berries but strawberries aren't.",
+"A day on Venus is longer than a year on Venus.",
+"Honey never spoils.",
+"Sharks existed before trees.",
+"A group of flamingos is called a flamboyance.",
+"Your brain uses about 20% of your body's energy.",
+"There are more stars than grains of sand on Earth."
+];
+
+const randomFact = facts[Math.floor(Math.random() * facts.length)];
+
+document.getElementById("fact").innerText = randomFact;
+
+</script>
+
+</body>
+</html>
