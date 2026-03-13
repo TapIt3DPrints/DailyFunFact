@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NFC Fun Fact</title>
+<title>Daily Fun Fact</title>
 
 <style>
 
@@ -11,7 +11,7 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Segoe UI, sans-serif;
+font-family:Arial, sans-serif;
 }
 
 body{
@@ -26,7 +26,7 @@ background:linear-gradient(135deg,#4facfe,#00f2fe);
 background:white;
 padding:40px;
 border-radius:20px;
-max-width:500px;
+max-width:550px;
 width:90%;
 text-align:center;
 box-shadow:0 20px 40px rgba(0,0,0,0.2);
@@ -34,12 +34,12 @@ box-shadow:0 20px 40px rgba(0,0,0,0.2);
 
 h1{
 margin-bottom:20px;
+font-size:28px;
 }
 
 #fact{
 font-size:20px;
 line-height:1.5;
-min-height:90px;
 margin-bottom:25px;
 }
 
@@ -51,17 +51,16 @@ padding:12px 25px;
 border-radius:10px;
 font-size:16px;
 cursor:pointer;
-transition:0.2s;
 }
 
 button:hover{
 transform:scale(1.05);
-background:#3b8ce0;
 }
 
-.loading{
-color:#777;
-font-style:italic;
+.footer{
+margin-top:15px;
+font-size:13px;
+color:#666;
 }
 
 </style>
@@ -71,56 +70,96 @@ font-style:italic;
 
 <div class="card">
 
-<h1>📡 NFC Fun Fact</h1>
+<h1>❗ Daily Fun Fact</h1>
 
-<p id="fact" class="loading">Scanning the universe for knowledge...</p>
+<p id="fact">Loading a fun fact...</p>
 
+<button onclick="newFact()">Another Fact</button>
 
+<div class="footer">
+Tap again anytime for another fun fact!
+</div>
 
 </div>
 
 <script>
 
-const backupFacts = [
+const facts = [
+
 "Octopuses have three hearts.",
-"Honey never spoils.",
-"Bananas are berries but strawberries aren't.",
+"Bananas are berries, but strawberries are not.",
+"Honey never spoils and can last thousands of years.",
 "Sharks existed before trees.",
 "A group of flamingos is called a flamboyance.",
-"Your brain uses about 20% of your body's energy.",
-"Sloths can hold their breath longer than dolphins.",
-"There are more stars than grains of sand on Earth.",
-"Venus spins backwards.",
-"Some turtles breathe through their butts."
+"The Eiffel Tower grows taller in the summer heat.",
+"Butterflies taste with their feet.",
+"Sloths move so slowly that algae can grow on their fur.",
+"There are more stars in the universe than grains of sand on Earth.",
+"A day on Venus is longer than a year on Venus.",
+"Penguins propose with pebbles.",
+"Dolphins have names for each other.",
+"Sea otters hold hands while sleeping.",
+"Bees communicate by dancing.",
+"Lightning is hotter than the surface of the sun.",
+"The tallest mountain in the solar system is on Mars.",
+"Jellyfish have existed for over 500 million years.",
+"Koalas sleep up to 22 hours a day.",
+"Cats sleep about two thirds of their lives.",
+"An octopus has nine brains.",
+"Saturn could float in water because it is mostly gas.",
+"The human brain contains about 86 billion neurons.",
+"A baby octopus is about the size of a grain of rice.",
+"Some turtles can breathe through their rear ends.",
+"The moon has moonquakes.",
+"A group of owls is called a parliament.",
+"Hot water can freeze faster than cold water.",
+"The Great Wall of China is over 13,000 miles long.",
+"Ants can carry many times their body weight.",
+"Some frogs can freeze without dying.",
+"A bolt of lightning contains enough energy to toast thousands of slices of bread.",
+"Earth is the only known planet with life.",
+"The Amazon rainforest produces a large portion of Earth's oxygen.",
+"Polar bears have black skin under their fur.",
+"The fastest land animal is the cheetah.",
+"Giraffes only sleep about 30 minutes a day.",
+"Owls can rotate their heads up to 270 degrees.",
+"The Pacific Ocean is the largest ocean on Earth.",
+"Mount Everest grows slightly every year.",
+"The human body has 206 bones.",
+"Your heart beats about 100,000 times per day.",
+"Some bamboo plants grow more than 3 feet in one day.",
+"The blue whale is the largest animal ever known.",
+"Rainbows appear when sunlight passes through raindrops.",
+"Elephants are the largest land animals.",
+"Frogs absorb water through their skin.",
+"Sunflowers track the sun as they grow.",
+"Camels can drink up to 40 gallons of water at once.",
+"Snails can sleep for several years.",
+"Earth takes 365 days to orbit the sun.",
+"Neptune has the strongest winds in the solar system.",
+"Some fish can glow in the dark.",
+"Chickens can remember over 100 different faces.",
+"Apples float because they are mostly water.",
+"Water covers about 71 percent of Earth's surface.",
+"Clouds can weigh more than a million pounds.",
+"Volcanoes create new land when lava cools.",
+"Trees can live for thousands of years.",
+"The Sahara Desert is the largest hot desert.",
+"Some spiders can fly using silk threads.",
+"Plants can communicate through their roots.",
+"The deepest ocean trench is about 7 miles deep."
+
 ];
 
-async function getFact(){
+function newFact(){
 
-document.getElementById("fact").innerText =
-"Searching the universe for knowledge...";
+const random = Math.floor(Math.random() * facts.length);
 
-try{
-
-let response = await fetch(
-"https://uselessfacts.jsph.pl/api/v2/facts/random"
-);
-
-let data = await response.json();
-
-document.getElementById("fact").innerText = data.text;
-
-}catch{
-
-let randomBackup =
-backupFacts[Math.floor(Math.random()*backupFacts.length)];
-
-document.getElementById("fact").innerText = randomBackup;
+document.getElementById("fact").innerText = facts[random];
 
 }
 
-}
-
-getFact();
+newFact();
 
 </script>
 
