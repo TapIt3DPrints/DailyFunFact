@@ -26,7 +26,7 @@ background:linear-gradient(135deg,#4facfe,#00f2fe);
 background:white;
 padding:40px;
 border-radius:20px;
-max-width:550px;
+max-width:600px;
 width:90%;
 text-align:center;
 box-shadow:0 20px 40px rgba(0,0,0,0.2);
@@ -39,31 +39,17 @@ font-size:28px;
 
 #fact{
 font-size:20px;
-line-height:1.5;
-margin-bottom:25px;
-}
-
-button{
-background:#4facfe;
-border:none;
-color:white;
-padding:12px 25px;
-border-radius:10px;
-font-size:16px;
-cursor:pointer;
-}
-
-button:hover{
-transform:scale(1.05);
+line-height:1.6;
 }
 
 .footer{
-margin-top:15px;
+margin-top:20px;
 font-size:13px;
 color:#666;
 }
 
 </style>
+
 </head>
 
 <body>
@@ -72,12 +58,10 @@ color:#666;
 
 <h1>❗ Daily Fun Fact</h1>
 
-<p id="fact">Loading a fun fact...</p>
-
-
+<p id="fact">Loading a strange fact...</p>
 
 <div class="footer">
-Tap again anytime for another fun fact!
+Tap the keychain again anytime for another fact.
 </div>
 
 </div>
@@ -86,68 +70,87 @@ Tap again anytime for another fun fact!
 
 const facts = [
 
-"Octopuses have three hearts.",
-"Bananas are berries, but strawberries are not.",
-"Honey never spoils and can last thousands of years.",
+"Octopuses have three hearts and blue blood.",
+"Wombat poop is cube-shaped.",
+"The fingerprints of a koala are very similar to humans.",
 "Sharks existed before trees.",
-"A group of flamingos is called a flamboyance.",
-"The Eiffel Tower grows taller in the summer heat.",
-"Butterflies taste with their feet.",
-"Sloths move so slowly that algae can grow on their fur.",
-"There are more stars in the universe than grains of sand on Earth.",
-"A day on Venus is longer than a year on Venus.",
-"Penguins propose with pebbles.",
-"Dolphins have names for each other.",
-"Sea otters hold hands while sleeping.",
-"Bees communicate by dancing.",
-"Lightning is hotter than the surface of the sun.",
-"The tallest mountain in the solar system is on Mars.",
-"Jellyfish have existed for over 500 million years.",
-"Koalas sleep up to 22 hours a day.",
-"Cats sleep about two thirds of their lives.",
-"An octopus has nine brains.",
-"Saturn could float in water because it is mostly gas.",
-"The human brain contains about 86 billion neurons.",
-"A baby octopus is about the size of a grain of rice.",
+"A shrimp's heart is located in its head.",
 "Some turtles can breathe through their rear ends.",
-"The moon has moonquakes.",
+"A group of flamingos is called a flamboyance.",
+"Bananas are radioactive due to natural potassium.",
+"There is a species of jellyfish that can technically live forever.",
+"Ants don’t have lungs.",
+"The human stomach gets a new lining every few days.",
+"The Eiffel Tower can grow about 6 inches taller in summer.",
+"The moon is slowly drifting away from Earth.",
+"Sloths move so slowly that algae grows on them.",
+"The smell of rain is called petrichor.",
+"Scotland has 421 words for snow.",
+"The first oranges were actually green.",
+"Octopus brains wrap around their esophagus.",
+"The largest snowflake ever recorded was 15 inches wide.",
+"Honey never spoils.",
+"The heart of a blue whale is the size of a small car.",
+"Saturn could float in water because it is mostly gas.",
+"Some bamboo can grow almost 3 feet in a single day.",
+"There are more trees on Earth than stars in the Milky Way.",
+"A bolt of lightning can be five times hotter than the sun.",
+"The tallest mountain in the solar system is Olympus Mons on Mars.",
+"Butterflies taste with their feet.",
+"Some frogs can freeze solid and survive.",
+"A day on Venus is longer than a year on Venus.",
+"The smell of freshly cut grass is a plant distress signal.",
+"Your brain uses about 20% of your body's energy.",
+"An octopus has nine brains.",
+"The Pacific Ocean is wider than the moon.",
+"The shortest war in history lasted 38 minutes.",
+"Cats can rotate their ears 180 degrees.",
+"Koalas have fingerprints almost identical to humans.",
 "A group of owls is called a parliament.",
+"Sea otters hold hands when sleeping.",
+"Snails can sleep for years.",
+"The Amazon rainforest produces much of Earth's oxygen.",
+"Polar bears have black skin.",
 "Hot water can freeze faster than cold water.",
-"The Great Wall of China is over 13,000 miles long.",
-"Ants can carry many times their body weight.",
-"Some frogs can freeze without dying.",
-"A bolt of lightning contains enough energy to toast thousands of slices of bread.",
-"Earth is the only known planet with life.",
-"The Amazon rainforest produces a large portion of Earth's oxygen.",
-"Polar bears have black skin under their fur.",
-"The fastest land animal is the cheetah.",
-"Giraffes only sleep about 30 minutes a day.",
-"Owls can rotate their heads up to 270 degrees.",
-"The Pacific Ocean is the largest ocean on Earth.",
-"Mount Everest grows slightly every year.",
-"The human body has 206 bones.",
-"Your heart beats about 100,000 times per day.",
-"Some bamboo plants grow more than 3 feet in one day.",
-"The blue whale is the largest animal ever known.",
-"Rainbows appear when sunlight passes through raindrops.",
-"Elephants are the largest land animals.",
-"Frogs absorb water through their skin.",
-"Sunflowers track the sun as they grow.",
-"Camels can drink up to 40 gallons of water at once.",
-"Snails can sleep for several years.",
-"Earth takes 365 days to orbit the sun.",
-"Neptune has the strongest winds in the solar system.",
-"Some fish can glow in the dark.",
-"Chickens can remember over 100 different faces.",
-"Apples float because they are mostly water.",
-"Water covers about 71 percent of Earth's surface.",
+"The human body contains enough iron to make a small nail.",
+"Earth’s rotation is gradually slowing down.",
+"There are more possible chess games than atoms in the observable universe.",
 "Clouds can weigh more than a million pounds.",
-"Volcanoes create new land when lava cools.",
-"Trees can live for thousands of years.",
-"The Sahara Desert is the largest hot desert.",
-"Some spiders can fly using silk threads.",
-"Plants can communicate through their roots.",
-"The deepest ocean trench is about 7 miles deep."
+"The deepest part of the ocean is about 7 miles deep.",
+"Some spiders travel through the air using silk threads.",
+"The average cloud moves about 30 miles per hour.",
+"A lightning strike can heat air to 50,000°F.",
+"The largest living structure on Earth is the Great Barrier Reef.",
+"Some lizards can run on water.",
+"The average human takes about 20,000 breaths per day.",
+"Trees can communicate through underground fungal networks.",
+"Some fish can glow in the dark.",
+"The Sahara Desert used to be a green savanna.",
+"Mount Everest grows slightly every year.",
+"Antarctica is technically the largest desert on Earth.",
+"Bees can recognize human faces.",
+"A hummingbird's heart can beat over 1,200 times per minute.",
+"Jupiter has the shortest day of any planet.",
+"Water can exist in three states at once at the triple point.",
+"Lightning strikes Earth about 100 times every second.",
+"The human nose can detect over a trillion smells.",
+"Glass can take over a million years to decompose.",
+"Neutron stars can spin hundreds of times per second.",
+"Some plants can 'hear' caterpillars chewing.",
+"Space is completely silent.",
+"Saturn has over 140 moons.",
+"The largest volcano on Earth is Mauna Loa.",
+"Venus rotates backwards compared to most planets.",
+"Some bacteria can survive in outer space.",
+"The first computer bug was an actual moth.",
+"An astronaut can grow taller in space.",
+"The ISS is visible from Earth without a telescope.",
+"A teaspoon of neutron star would weigh billions of tons.",
+"Your body produces about a liter of saliva each day.",
+"Earth travels around the sun at about 67,000 mph.",
+"The average raindrop falls about 20 mph.",
+"Lightning can strike the same place many times.",
+"Sunlight takes about 8 minutes to reach Earth."
 
 ];
 
